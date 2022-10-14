@@ -70,8 +70,20 @@ public class ContactManager {
 
     }
 
-    public static void printList() {
+    public static void printList(Scanner sc) {
         contactList.forEach(System.out::println);
+        System.out.println("----------------------------------");
+        System.out.println("1. Return to main menu\n" +
+                "2. Exit");
+        int choice = sc.nextInt();
+        sc.nextLine();
+        switch (choice) {
+            case 1:
+                printMainMenu(sc);
+                break;
+            case 2:
+                break;
+        }
     }
 
     public static void printMainMenu(Scanner sc) {
@@ -94,7 +106,7 @@ public class ContactManager {
         sc.nextLine();
         switch (choice) {
             case 1:
-                printList();
+                printList(sc);
                 break;
             case 2:
                 addContact(sc);
