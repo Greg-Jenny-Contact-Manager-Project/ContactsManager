@@ -3,6 +3,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class ContactManager {
 
@@ -37,19 +38,43 @@ public class ContactManager {
             addToContactList(newContact);
             System.out.println("Would you like to add another contact? y/n?");
             String input = sc.nextLine();
-            if(! input.equalsIgnoreCase("y")) {
+            if (!input.equalsIgnoreCase("y")) {
                 break;
             }
         }
-        printMainMenu();
+        printMainMenu(sc);
     }
 
+    public static void deleteContact() {
+
+    }
+
+    public static void searchContact(Scanner sc) {
+        System.out.println("Enter the name of the contact");
+        String contact = sc.nextLine();
+        List<String> result = contactList.stream()
+                .filter(x -> x.contains(contact)).collect(Collectors.toList());
+        System.out.println(result);
+        System.out.println("---------------");
+        System.out.println("1. Search another contact\n" +
+                "2. Return to main menu\n");
+        int choice = sc.nextInt();
+        sc.nextLine();
+        switch (choice) {
+            case 1:
+                searchContact(sc);
+                break;
+            case 2:
+                printMainMenu(sc);
+    }
+
+    }
 
     public static void printList() {
         contactList.forEach(System.out::println);
     }
 
-    public static void printMainMenu() {
+    public static void printMainMenu(Scanner sc) {
         System.out.println(
                 "------------------------------------------\n" +
                         "                Welcome!\n" +
@@ -61,25 +86,29 @@ public class ContactManager {
                         "5. Exit\n" +
                         "Enter an option (1, 2, 3, 4 or 5):\n" +
                         "------------------------------------------\n");
+        mainMenu(sc);
     }
 
-//    public static void mainMenu(int menuNum) {
-//        switch (menuNum) {
-//            case 1:
-//                category = "Bakery";
-//                break;
-//            case 2:
-//                category = "Dairy";
-//                break;
-//            case 3:
-//                category = "Frozen";
-//                break;
+    public static void mainMenu(Scanner sc) {
+        int choice = sc.nextInt();
+        sc.nextLine();
+        switch (choice) {
+            case 1:
+                printList();
+                break;
+            case 2:
+                addContact(sc);
+                break;
+            case 3:
+                searchContact(sc);
+                break;
 //            case 4:
 //                category = "Meat";
 //                break;
 //            case 5:
 //                category = "Other";
 //                break;
-//        }
-    } // ContactManager CLASS
+        }
+    }
+}// ContactManager CLASS
 
