@@ -25,4 +25,5 @@ public class Contact {
     public String toString() {
         return fullName + " | " + phone + " | ";
     }
+
 }
