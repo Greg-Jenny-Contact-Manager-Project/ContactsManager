@@ -10,10 +10,10 @@ public class Main {
     public static String currentDir = System.getProperty("user.dir");
     public static String directory = currentDir + "/data";
     public static Path filepath = Paths.get(directory,filename);
-    public static ArrayList<Contact> contactList = new ArrayList<>();
+    public static ArrayList<String> contactList = new ArrayList<>();
 
     public static void addContact(Contact newContact) {
-        contactList.add(newContact);
+        contactList.add(String.valueOf(newContact));
     }
     public static void main(String[] args) throws IOException {
         // Onload read the file contacts.txt
@@ -26,7 +26,14 @@ public class Main {
 
         Files.write(filepath,contactList);
 
+
         System.out.println(contactList);
         System.out.println(fileContactList);
     } // main method
+
+    public static void writeContactList(ArrayList<Contact> list) {
+
+    }
+
+
 } // main class
