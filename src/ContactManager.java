@@ -14,7 +14,7 @@ public class ContactManager {
     public static Path filepath = Paths.get(directory, filename);
     public static List<String> contactList = new ArrayList<>();
 
-
+// Take in new Contact object and add it to the ArrayList of all contacts as a STRING
     public static void addToContactList(Contact newContact) {
         if (contactList.contains(String.valueOf(newContact))) {
             System.out.println("Contact already exist");
@@ -23,6 +23,7 @@ public class ContactManager {
         }
     }
 
+// Creates a new Contact object via user inputs in the terminal
     public static void addContact(Scanner sc) {
         String firstName;
         String lastName;
@@ -51,7 +52,7 @@ public class ContactManager {
 
     }
 
-// this searches & prints an array list of all contacts that match the search string.
+// Searches contactList ArrayList based off a user input String, prints an array list of any Contact that has values that match the input. ignores case.
     public static void searchContact(Scanner sc) {
         System.out.println("Enter the name of the contact");
         String contact = sc.nextLine();
@@ -73,6 +74,7 @@ public class ContactManager {
 
     }
 
+// Prints the contactList in alphabetical order based on first name values
     public static void printList(Scanner sc) {
         Collections.sort(contactList);
         contactList.forEach(System.out::println);
@@ -90,6 +92,7 @@ public class ContactManager {
         }
     }
 
+// Prints the main menu on application startup, runs the mainMenu Method for control.
     public static void printMainMenu(Scanner sc) {
         System.out.println(
                 "------------------------------------------\n" +
@@ -105,6 +108,7 @@ public class ContactManager {
         mainMenu(sc);
     }
 
+// Main menu switch statement for navigation through the application
     public static void mainMenu(Scanner sc) {
         int choice = sc.nextInt();
         sc.nextLine();
@@ -126,5 +130,5 @@ public class ContactManager {
                 break;
         }
     }
-}// ContactManager CLASS
+}// end ContactManager CLASS
 
