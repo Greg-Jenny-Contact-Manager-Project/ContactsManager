@@ -54,8 +54,8 @@ public class ContactManager {
         List<String> result = contactList.stream()
                 .filter(x -> x.toLowerCase().contains(contact.toLowerCase())).collect(Collectors.toList());
         result.forEach(System.out::println);
-        System.out.println(contactList.indexOf(result.get(0)));
-        contactList.remove(contactList.indexOf(result.get(0))); // this works only when there is a single entry returned, otherwise you delete the first on the list.
+        int deleteIndex = contactList.indexOf(result.get(0));
+        contactList.remove(deleteIndex); // this works only when there is a single entry returned, otherwise you delete the first on the list.
 
     }
 

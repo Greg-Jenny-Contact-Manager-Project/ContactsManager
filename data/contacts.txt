@@ -6,6 +6,7 @@ Jane Smith | 222-222-2222 |
 Jenny Austin | 444-444-4444 | 
 Jenny Bennett | 877-998-5455 | 
 John Smith | 333-333-3333 | 
+John Wayne | 988-232-4443 | 
 Kenny James | 344-333-4555 | 
 Mcluvin Mcluvin | 555-555-5555 |
 Peter Hardtospell | 111-111-1111 | 
