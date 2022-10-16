@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.function.Consumer;
 
@@ -65,26 +66,31 @@ public class Menus {
         mainMenu(sc);
     }
 
+    // TODO: 10/15/22 try catch prevents failure if non int is inputted but exits the system when done.
     // Main menu switch statement for navigation through the application
     public static void mainMenu(Scanner sc) {
+        try {
         int choice = sc.nextInt();
-        sc.nextLine();
-        switch (choice) {
-            case 1:
-                ContactManager.printList(sc);
-                break;
-            case 2:
-                ContactManager.addContact(sc);
-                break;
-            case 3:
-                ContactManager.searchContact(sc);
-                break;
-            case 4:
-                ContactManager.deleteContact(sc);
-                break;
-            case 5:
-                exit();
-                break;
+            sc.nextLine();
+            switch (choice) {
+                case 1:
+                    ContactManager.printList(sc);
+                    break;
+                case 2:
+                    ContactManager.addContact(sc);
+                    break;
+                case 3:
+                    ContactManager.searchContact(sc);
+                    break;
+                case 4:
+                    ContactManager.deleteContact(sc);
+                    break;
+                case 5:
+                    exit();
+                    break;
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Enter a valid input");
         }
     }
 } // Menu CLASS close
