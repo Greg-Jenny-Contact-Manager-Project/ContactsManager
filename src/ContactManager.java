@@ -52,13 +52,16 @@ public class ContactManager {
 
     public static Consumer<Scanner> deleteContact(Scanner sc) {
         out.println("\n" + Menus.breakPt + "\n                    DELETE CONTACT\n" + Menus.breakPt);
-            List<String> result = searchfunction(sc);
-            int deleteIndex = contactList.indexOf(result.get(0));
-            contactList.remove(deleteIndex);
-            Menus.returnMenu(sc, "1. Delete another contact", ContactManager::deleteContact);
-            out.println(Menus.breakPt + "\n\nThat name does not match any contact in the GREY");
-            Menus.returnMenu(sc, "1. Return to Delete Contact", ContactManager::deleteContact);
-                  return deleteContact(sc);
+        List<String> result = searchfunction(sc);
+        out.println("Select the contact you would like to delete:");
+        int whichContact = sc.nextInt();
+
+        int deleteIndex = contactList.indexOf(result.get(whichContact-1));
+        contactList.remove(deleteIndex);
+        Menus.returnMenu(sc, "1. Delete another contact", ContactManager::deleteContact);
+        out.println(Menus.breakPt + "\n\nThat name does not match any contact in the GREY");
+        Menus.returnMenu(sc, "1. Return to Delete Contact", ContactManager::deleteContact);
+        return deleteContact(sc);
 
         // this works only when there is a single entry returned, otherwise you delete the first on the list.
     }
@@ -78,6 +81,7 @@ public class ContactManager {
         Menus.returnMenu(sc, "1. Search another contact", ContactManager::searchContact);
         return searchContact(sc);
     }
+
     public static List<String> searchfunction(Scanner sc) {
         List<String> result;
         out.println("Enter the name of the contact");
@@ -85,11 +89,10 @@ public class ContactManager {
         result = contactList.stream()
                 .filter(x -> x.toLowerCase().contains(contact.toLowerCase())).collect(Collectors.toList());
         for (int i = 0; i < result.size(); i++) {
-            out.println((i+1) + ". | " + result.get(i));
+            out.println((i + 1) + ". | " + result.get(i));
         }
         return result;
     }
-
 
 
     // Prints the contactList in alphabetical order based on first name values
