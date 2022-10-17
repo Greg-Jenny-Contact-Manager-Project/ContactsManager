@@ -12,14 +12,9 @@ public class Main {
         ContactManager.printMainMenu(sc);
 //        ContactManager.mainMenu(2,sc);
         // Writing contact list to contacts.txt
-        Files.write(ContactManager.filepath, ContactManager.contactList);
+
 
 
     } // main method
 
 } // main class
-//        ContactManager.addContact(sc);
-//        Contact peter = new Contact("Peter", "Hardtospell", "111-111-1111");
-//        ContactManager.addToContactList(peter);
-//        ContactManager.printList();
-//        ContactManager.printMainMenu();
