@@ -1,5 +1,3 @@
-import java.util.Formatter;
-
 public class Contact  {
     private String firstName;
     private String lastName;
@@ -25,13 +23,11 @@ public class Contact  {
     }
 
     public String toString() {
-        String stringContact = String.format("%-23s| %s |", fullName, phone);
+        String stringContact = String.format("%-25s|%19s         |", fullName, phone);
         return stringContact;
     }
 
-    public static String format(String format, Object... args) {
-        return new Formatter().format(format, args).toString();
-    }
+
 //System.out.printf("%-23s| %s   |%n",nameField, phoneNumberField);
 
 }

@@ -16,9 +16,7 @@ public class ContactManager {
     public static String directory = currentDir + "/data";
     public static Path filepath = Paths.get(directory, filename);
     public static List<String> contactList = new ArrayList<>();
-//    public static Function<Scanner> searchContact = ContactManger::searchContacts;
 
-    //    public static List<String> result;
     // Take in new Contact object and add it to the ArrayList of all contacts as a STRING
     public static void addToContactList(Contact newContact) {
         if (contactList.contains(String.valueOf(newContact))) {
@@ -48,8 +46,7 @@ public class ContactManager {
 
     }
 
-    // TODO: 10/15/22 need to adjust for an option to choose which selection to delete.
-
+    // deleteContact takes in a search value and returns a list of matching contacts, then allows user to select which contact to delete
     public static Consumer<Scanner> deleteContact(Scanner sc) {
         out.println("\n" + Menus.breakPt + "\n                    DELETE CONTACT\n" + Menus.breakPt);
         List<String> result = searchfunction(sc);
@@ -65,13 +62,11 @@ public class ContactManager {
         out.println(Menus.breakPt + "\n\nThat name does not match any contact in the GREY");
         Menus.returnMenu(sc, "1. Return to Delete Contact", ContactManager::deleteContact);
         return deleteContact(sc);
-
-        // this works only when there is a single entry returned, otherwise you delete the first on the list.
     }
 
 
     // Searches contactList ArrayList based off a user input String, prints an array list of any Contact that has values that match the input. ignores case.
-    // TODO: 10/16/22 the return menu does not work on this... because "result" is empty?
+
     public static Consumer<Scanner> searchContact(Scanner sc) {
         out.println("\n" + Menus.breakPt + "\n                    SEARCH CONTACT\n" + Menus.breakPt);
         List<String> result = searchfunction(sc);
@@ -85,6 +80,7 @@ public class ContactManager {
         return searchContact(sc);
     }
 
+//Search functionality
     public static List<String> searchfunction(Scanner sc) {
         List<String> result;
         out.println("Enter the name of the contact");

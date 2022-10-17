@@ -1,6 +1,4 @@
 
-
-
- NAME                  | PHONE NUMBER |
-Evander Francis        | 222-222-2222 |
-Jenny Austin           | 444-444-4444 |
+           NAME          |         PHONE NUMBER       |
+-------------------------------------------------------
+Jenny Austin             |       444-444-4444         |
