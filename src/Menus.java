@@ -3,13 +3,12 @@ import java.util.Scanner;
 import java.util.function.Consumer;
 
 public class Menus {
-
     private static String byee = "Thank you for using GREY Contact Manager!\n";
 
     public static String breakPt = "-------------------------------------------------------";
 
     // Method accepts sc, a prompt, and a method. Prints prompt as menu item and inserts method in switch statement.
-    public static void returnMenu(Scanner sc, String prompt, Consumer<Scanner> method) {
+    public static Consumer<Scanner> returnMenu(Scanner sc, String prompt, Consumer<Scanner> method) {
         System.out.println("\n" + breakPt + "\n" + prompt +
                 "\n2. Return to main menu\n" +
                 "3. Exit\n" + breakPt);
@@ -25,6 +24,7 @@ public class Menus {
             case 3:
                 exit();
         }
+        return method;
     }
 
     //Overloaded of above to set default menu and methods for switch
