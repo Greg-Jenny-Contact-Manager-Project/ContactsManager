@@ -84,7 +84,9 @@ public class ContactManager {
         String contact = sc.nextLine();
         result = contactList.stream()
                 .filter(x -> x.toLowerCase().contains(contact.toLowerCase())).collect(Collectors.toList());
-        result.forEach(out::println);
+        for (int i = 0; i < result.size(); i++) {
+            out.println((i+1) + ". | " + result.get(i));
+        }
         return result;
     }
 
