@@ -53,11 +53,14 @@ public class ContactManager {
     public static Consumer<Scanner> deleteContact(Scanner sc) {
         out.println("\n" + Menus.breakPt + "\n                    DELETE CONTACT\n" + Menus.breakPt);
         List<String> result = searchfunction(sc);
-        out.println("Select the contact you would like to delete:");
-        int whichContact = sc.nextInt();
-
+        int whichContact = 1;
+        if (result.size() > 1) {
+            out.println(Menus.breakPt + "\nSelect the contact you would like to delete:");
+            whichContact = sc.nextInt();
+            sc.nextLine();
+        }
         int deleteIndex = contactList.indexOf(result.get(whichContact-1));
-        contactList.remove(deleteIndex);
+        out.println("\n" + Menus.breakPt + "\n" + contactList.remove(deleteIndex) + "has been deleted");
         Menus.returnMenu(sc, "1. Delete another contact", ContactManager::deleteContact);
         out.println(Menus.breakPt + "\n\nThat name does not match any contact in the GREY");
         Menus.returnMenu(sc, "1. Return to Delete Contact", ContactManager::deleteContact);
