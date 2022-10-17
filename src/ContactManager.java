@@ -52,15 +52,13 @@ public class ContactManager {
 
     public static Consumer<Scanner> deleteContact(Scanner sc) {
         out.println("\n" + Menus.breakPt + "\n                    DELETE CONTACT\n" + Menus.breakPt);
-        try {
             List<String> result = searchfunction(sc);
             int deleteIndex = contactList.indexOf(result.get(0));
             contactList.remove(deleteIndex);
             Menus.returnMenu(sc, "1. Delete another contact", ContactManager::deleteContact);
-        } catch (IndexOutOfBoundsException e) {
             out.println(Menus.breakPt + "\n\nThat name does not match any contact in the GREY");
             Menus.returnMenu(sc, "1. Return to Delete Contact", ContactManager::deleteContact);
-        }            return deleteContact(sc);
+                  return deleteContact(sc);
 
         // this works only when there is a single entry returned, otherwise you delete the first on the list.
     }

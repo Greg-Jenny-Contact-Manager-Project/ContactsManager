@@ -49,8 +49,8 @@ public class Menus {
     public static void exit() {
         try {
             System.out.println(breakPt + "\n" + byee + breakPt);
-            System.exit(0);
             Files.write(ContactManager.filepath, ContactManager.contactList);
+            System.exit(0);
         } catch (IOException e) {
             System.out.println(e);
         }
