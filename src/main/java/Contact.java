@@ -1,3 +1,5 @@
+package main.java;
+
 public class Contact  {
     private String firstName;
     private String lastName;
@@ -26,9 +28,4 @@ public class Contact  {
         String stringContact = String.format("%-25s|%19s         |", fullName, phone);
         return stringContact;
     }
-
-
-
-//System.out.printf("%-23s| %s   |%n",nameField, phoneNumberField);
-
 }
