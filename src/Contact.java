@@ -28,6 +28,7 @@ public class Contact  {
     }
 
 
+
 //System.out.printf("%-23s| %s   |%n",nameField, phoneNumberField);
 
 }

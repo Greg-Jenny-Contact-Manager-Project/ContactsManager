@@ -1,4 +1,3 @@
 
-           NAME          |         PHONE NUMBER       |
+|          NAME          |       PHONE NUMBER         |
 -------------------------------------------------------
-Jenny Austin             |       444-444-4444         |
